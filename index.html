@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Cerise</title>
+
+<link rel="stylesheet" href="style.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+<header class="topbar">
+
+<div class="logo">
+<img src="images/logo1.png" alt="Cerise">
+</div>
+
+<button class="cart-icon" onclick="toggleCart()">🛒</button>
+
+</header>
+
+<header class="hero">
+
+<div class="hero-content">
+
+<h1>Nueva colección<br>muy pronto</h1>
+
+<button onclick="scrollProductos()">VER TIENDA</button>
+
+</div>
+
+</header>
+
+<section class="historia">
+
+<h2>Nuestra historia</h2>
+
+<p>
+Piezas hechas a mano en Uruguay.<br>
+Diseños delicados creados con dedicación.
+</p>
+
+</section>
+
+<section id="productos">
+
+<h2>Colección</h2>
+
+<div class="grid" id="productos-container"></div>
+
+</section>
+
+<div id="overlay" class="overlay" onclick="toggleCart()"></div>
+
+<div class="cart" id="cart">
+
+<h2>Carrito</h2>
+
+<ul id="cart-items"></ul>
+
+<p class="total">Total: $<span id="total">0</span></p>
+
+<button class="continue" onclick="toggleCart()">Seguir comprando</button>
+
+<button class="checkout">Pagar</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
