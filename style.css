@@ -65,9 +65,9 @@ color:#2E2623;
 }
 .hero{
 
-height:85vh;
-
-background:url("/images/hero.jpg") center/cover;
+background-image:url("images/hero.jpg");
+background-size:cover;
+background-position:center;
 
 display:flex;
 
