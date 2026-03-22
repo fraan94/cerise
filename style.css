@@ -64,14 +64,10 @@ color:#2E2623;
 
 }
 .hero{
-
-background-image:url("images/hero.jpg");
-background-position:center;
-
+height:85vh;
+background:url("images/hero.jpg") center cover;
 display:flex;
-
 align-items:center;
-
 padding-left:10%;
 
 }
