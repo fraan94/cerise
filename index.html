@@ -16,7 +16,7 @@
         <div class="logo">
             <img src="images/logo1.png" alt="Cerise">
         </div>
-        <button class="cart-icon" onclick="abrirCarrito()">🛒</button>
+        <button class="cart-icon" onclick="abrirCarrito()">🛒<span id="cart-dot" class="cart-dot">0</span></button>
     </header>
 
     <div class="menu" id="menu">
@@ -57,10 +57,11 @@
         <ul id="cart-items"></ul>
         <p class="total">Total: $<span id="total">0</span></p>
         <button class="continue" onclick="cerrarTodo()">Seguir comprando</button>
+        <button class="vaciar" onclick="vaciarCarrito()">Vaciar carrito</button>
         <button class="checkout">Pagar</button>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script2.js"></script>
 </body>
 
 </html>
