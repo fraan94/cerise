@@ -45,27 +45,87 @@ ${p.talles.map(t => `<button onclick="agregar(${i},'${t}')">${t}</button>`).join
 `
     contenedor.innerHTML += html
 })
+function actualizarIndicador(){
+
+    const dot = document.getElementById("cart-dot")
+
+    dot.innerText = carrito.length
+
+    if(carrito.length > 0){
+        dot.classList.add("active")
+    }else{
+        dot.classList.remove("active")
+    }
+
+}
 function agregar(i, talle) {
     let p = productos[i]
     carrito.push({
         nombre: p.nombre,
         precio: p.precio,
-        talle: talle
+        talle: talle,
+        imagen: p.imagen
     })
     total += p.precio
+    document.getElementById("cart-dot").classList.add("active")
+    actualizarIndicador()
     render()
 }
-function render() {
-    const lista = document.getElementById("cart-items")
-    lista.innerHTML = ""
-    carrito.forEach(p => {
-        const li = document.createElement("li")
-        li.innerText = `${p.nombre} (${p.talle}) - ${formatearPrecio(p.precio)}`
-        lista.appendChild(li)
-    })
-    document.getElementById("total").innerText = total.toLocaleString("es-UY")
-}
+function render(){
 
+    const lista = document.getElementById("cart-items")
+
+    lista.innerHTML = ""
+
+    carrito.forEach((p,index)=>{
+
+        const li = document.createElement("li")
+
+        li.className = "cart-item"
+
+        li.innerHTML = `
+            <img src="${p.imagen}" class="cart-thumb">
+
+            <div class="cart-info">
+                <strong>${p.nombre}</strong><br>
+                Talle: ${p.talle}<br>
+                ${formatearPrecio(p.precio)}
+            </div>
+
+            <button class="delete-item"
+                onclick="eliminarProducto(${index})">
+                ✕
+            </button>
+        `
+
+        lista.appendChild(li)
+
+    })
+
+    document.getElementById("total").innerText =
+        total.toLocaleString("es-UY")
+
+    actualizarIndicador()
+
+}
+function eliminarProducto(index){
+
+    total -= carrito[index].precio
+
+    carrito.splice(index,1)
+
+    render()
+
+}
+function vaciarCarrito(){
+
+    carrito = []
+
+    total = 0
+
+    render()
+
+}
 function scrollProductos() {
     document.getElementById("productos").scrollIntoView({
         behavior: "smooth"
